@@ -13,7 +13,7 @@ const SingleCategory = (props: SingleCategoryProps) => {
         setCurrentId(id)
     }
     return (
-        <div>
+        <div className='my-2'>
             {/* parent */}
             <button onClick={() => handleCategory(data.id)} className={`hover:bg-[#E8F0F5] ${data.id === currentId ? "bg-[#e8f0f5]" : "bg-transparent"}  flex gap-4 p-[10px] items-center rounded-[10px] w-full`}>
                 <div className="h-12 w-14 bg-[#CFE0E5] rounded-[10px] p-[10px]">

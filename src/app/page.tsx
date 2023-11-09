@@ -7,11 +7,12 @@ export default function Home() {
   const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
 
   return (
-    <main className="bg-[#ebeef2] mx-auto max-w-[1900px] min-h-screen pt-8 px-8">
-      <MainLayout>
-        {/* start category */}
+    <main >
+      {/* className="bg-[#ebeef2] mx-auto max-w-[1900px] min-h-screen pt-8 px-8" */}
+      {/* <MainLayout>
+        start category
         <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-3 bg-white rounded-xl overflow-hidden h-[85vh] ">
+          <div className="col-span-3 bg-white rounded-xl overflow-hidden h-[85vh] pb-4">
             <h1 className="text-center bg-primary text-white py-4 text-[17px] mb-4 ">Categories</h1>
             <div className="px-2 flex flex-col items-center ">
               <form className="relative  w-max ">
@@ -25,28 +26,36 @@ export default function Home() {
 
               </form>
             </div>
-            {/* category section */}
-            <div className="h-full flex flex-col gap-6 mx-2 mt-4 overflow-y-scroll">
-              {
-                data.map(cat => <SingleCategory key={cat.id} data={cat} />)
-              }
-
+            category section
+            <div className="h-[80%] flex flex-col gap-6 mx-2 mt-4 overflow-y-scroll mb-5">
+              {data.map((cat) => (
+                <SingleCategory key={cat.id} data={cat} />
+              ))}
             </div>
+
           </div>
 
 
-          {/* main section */}
-          <div className="col-span-9 ">
-            <div className="flex flex-col gap-4">
+          main section
+          <div className="col-span-9 h-[80%] overflow-y-scroll">
+            <div className="flex flex-col gap-4 ">
 
               {
-                [{ id: 1 }, { id: 2 }].map(item => <CategoryDetails key={item.id} data={item} />)
+                data.map(item => <CategoryDetails key={item.id} data={item} />)
               }
 
             </div>
           </div>
         </div>
-      </MainLayout>
+      </MainLayout> */}
+
+      <div className="flex flex-col gap-4 ">
+
+        {
+          data.map(item => <CategoryDetails key={item.id} data={item} />)
+        }
+
+      </div>
     </main>
   )
 }
