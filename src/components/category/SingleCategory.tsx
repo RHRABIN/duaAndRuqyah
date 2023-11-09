@@ -1,14 +1,10 @@
-"use client"
+// "use client"
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
 import SubCategory from './SubCategory';
 import { ICategory } from '@/types';
-type SingleCategoryProps = {
-    data: {
-        id: number;
-    }
-}
+
 const SingleCategory: React.FC<{ data: ICategory }> = ({ data }) => {
     const { cat_id, cat_name_en, no_of_subcat, no_of_dua } = data;
     const [currentId, setCurrentId] = useState(1)
@@ -21,11 +17,10 @@ const SingleCategory: React.FC<{ data: ICategory }> = ({ data }) => {
         router.push(`?category=${value}`)
     }
 
-
     return (
         <div className='my-2'>
             {/* parent */}
-            <button type='button' onClick={() => handleCategory("bangla", data?.id)} className={`hover:bg-[#E8F0F5] ${data.id === currentId ? "bg-[#e8f0f5]" : "bg-transparent"}  flex gap-4 p-[10px] items-center rounded-[10px] w-full`}>
+            <button type='button' onClick={() => handleCategory("category", data?.id)} className={`hover:bg-[#E8F0F5] ${data.id === currentId ? "bg-[#e8f0f5]" : "bg-transparent"}  flex gap-4 p-[10px] items-center rounded-[10px] w-full`}>
                 <div className="h-12 w-14 bg-[#CFE0E5] rounded-[10px] p-[10px]">
                     <Image width={100} height={100} src={"/images/categoryImage.png"} alt="category image" />
                 </div>
@@ -42,7 +37,10 @@ const SingleCategory: React.FC<{ data: ICategory }> = ({ data }) => {
             </button>
 
             {/* children */}
-            <div className={` ${data.id === currentId ? "block" : "hidden"} ml-12 border-l-[2px] border-dotted my-2 border-primary`}>
+            <div
+                // className={` ${data.id === currentId ? "block" : "hidden"} block ml-12 border-l-[2px] border-dotted my-2 border-primary`}
+                className={`  block ml-12 border-l-[2px] border-dotted my-2 border-primary`}
+            >
                 {
                     <SubCategory cat_id={cat_id} />
                 }
