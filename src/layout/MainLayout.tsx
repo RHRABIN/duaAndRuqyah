@@ -1,6 +1,5 @@
 "use client"
 import SidebarCategory from "@/components/category/SidebarCategory";
-import SingleCategory from "@/components/category/SingleCategory";
 import Header from "@/components/header/Header";
 import MenuBar from "@/components/menubar/MenuBar";
 import Settings from "@/components/settings/Settings";
@@ -17,7 +16,6 @@ const MainLayout: React.FC<MainProps> = ({ children }) => {
             <MenuBar />
 
             <div className="w-full ">
-                {/* header */}
                 <Header />
 
                 <div className="grid grid-cols-10 gap-6 w-full mt-4 h-[85vh]">

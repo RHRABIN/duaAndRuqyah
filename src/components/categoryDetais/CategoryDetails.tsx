@@ -1,12 +1,9 @@
+import { IDua } from '@/types';
 import Image from 'next/image';
 import React from 'react';
-type CategoryDetailsProps = {
-    data: {
-        id: number;
-    }
-}
-const CategoryDetails = (props: CategoryDetailsProps) => {
-    const { data } = props;
+
+const CategoryDetails: React.FC<{ data: IDua }> = ({ data }) => {
+    const { cat_id, dua_id, dua_name_en, translation_en } = data;
     const iconsLink = [{ id: 1, url: "/images/copy.png" }, { id: 2, url: "/images/bookmark.png" },
     { id: 3, url: "/images/memorize.png" },
     { id: 4, url: "/images/share.png" },
@@ -30,7 +27,7 @@ const CategoryDetails = (props: CategoryDetailsProps) => {
                     </h1>
                 </div>
                 <div className="my-4 text-black">
-                    All human beings depend on Allah for their welfare and prevention of evil in various matters of their religion and world. Allah says (interpretation of the meaning): O mankind, you are those in need of Allah, while Allah is the Free of need, the Praiseworthy.
+                    {translation_en}
                 </div>
                 <div className="reference text-black">
                     <span className="text-primary">Reference:</span> <br />

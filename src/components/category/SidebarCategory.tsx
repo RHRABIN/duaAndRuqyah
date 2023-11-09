@@ -1,8 +1,11 @@
 import React from 'react';
 import SingleCategory from './SingleCategory';
+import { baseUrl } from '@/config';
+import { ICategory } from '@/types';
 
-const SidebarCategory = () => {
-    const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
+export default async function SidebarCategory() {
+    const response = await fetch(`${baseUrl}/category`);
+    const data = await response.json();
 
     return (
         <div className='h-[85vh]'>
@@ -21,13 +24,12 @@ const SidebarCategory = () => {
             </div>
             {/* category section */}
             <div className="mx-2 mt-4 mb-5 h-[80%] overflow-y-scroll custom-scrollbar-container">
-                {data.map((cat) => (
+                {data ? data.data?.map((cat: ICategory) => (
                     <SingleCategory key={cat.id} data={cat} />
-                ))}
+                )) : <p>Loading..</p>}
             </div>
 
         </div>
     );
 };
 
-export default SidebarCategory;
